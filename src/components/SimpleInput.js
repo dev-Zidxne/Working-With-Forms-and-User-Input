@@ -28,7 +28,7 @@ const SimpleInput = (props) => {
   const formSubmissionHandler = (event) => {
     event.preventDefault();
 
-    if (!enteredNameIsValid) {
+    if (!enteredNameIsValid && !formIsDisabled) {
       return;
     }
 
@@ -37,14 +37,6 @@ const SimpleInput = (props) => {
     resetNameInput();
     resetEmailInput();
   };
-
-  const nameInputClasses = nameinputHasError
-    ? "form-control invalid"
-    : "form-control ";
-
-  const emailInputClasses = emailIsInvalid
-    ? "form-control invalid"
-    : "form-control ";
 
   return (
     <form onSubmit={formSubmissionHandler}>
